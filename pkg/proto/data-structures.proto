@@ -1,0 +1,29 @@
+syntax="proto3";
+package proto;
+
+import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto";
+
+service DataStructures {
+    rpc RearrangeArrayAlternately(RearrangeArrayAlternatelyRequest) returns (RearrangeArrayAlternatelyResponse){
+    option (google.api.http) = {
+    post:"/v1/data_srtuctures/RearrangeArrayAlternately"
+    body:"*"
+    };
+}
+}
+
+message RearrangeArrayAlternately_Test_Case{
+    int64 length=1;
+    repeated int64 array=2;
+}
+
+message RearrangeArrayAlternatelyRequest{
+    int64 testcases_count=1;
+    repeated int64 RearrangeArrayAlternately_Test_Case=2;
+}
+
+message RearrangeArrayAlternatelyResponse{
+    repeated int64 array=1;
+    repeated int64 arranged_array=2;
+}

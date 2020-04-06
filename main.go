@@ -9,7 +9,7 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"google.golang.org/grpc"
 
-	gw "./pkg/proto"  // Update
+	gw "github.com/k2rth1k/go_programming/pkg/proto"  // Update
 )
 
 var (
@@ -27,7 +27,7 @@ func run() error {
 	// Note: Make sure the gRPC server is running properly and accessible
 	mux := runtime.NewServeMux()
 	opts := []grpc.DialOption{grpc.WithInsecure()}
-	err := gw.RegisterData_structuresHandlerFromEndpoint(ctx, mux,  *grpcServerEndpoint, opts)
+	err := gw.RegisterDataStructuresHandlerFromEndpoint(ctx, mux,  *grpcServerEndpoint, opts)
 	if err != nil {
 		return err
 	}
