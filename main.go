@@ -1,7 +1,7 @@
 package main
 
 import (
-	"context"  // Use "golang.org/x/net/context" for Golang version <= 1.6
+	"context" // Use "golang.org/x/net/context" for Golang version <= 1.6
 	"flag"
 	"net/http"
 
@@ -9,7 +9,7 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"google.golang.org/grpc"
 
-	gw "github.com/k2rth1k/go_programming/pkg/proto"  // Update
+	gw "github.com/k2rth1k/go_programming/pkg/proto" // Update
 )
 
 var (
@@ -44,3 +44,4 @@ func main() {
 		glog.Fatal(err)
 	}
 }
+
