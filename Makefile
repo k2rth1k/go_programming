@@ -11,3 +11,9 @@ proto:
                 	--swagger_out=logtostderr=true:. \
                		 $$i; \
     done;
+
+.Phony: build
+build:	proto
+	@echo "building application...."
+	@go build -o build/amd64 main.go
+	@echo "successfully built application"
