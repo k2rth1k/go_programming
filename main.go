@@ -1,15 +1,18 @@
 package main
-
 import (
-	"context" // Use "golang.org/x/net/context" for Golang version <= 1.6
+	"context"
 	"flag"
+	"github.com/k2rth1k/go_programming/pkg/api"
+	"google.golang.org/grpc/reflection"
+	"log"
+	"net"
 	"net/http"
 
 	"github.com/golang/glog"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"google.golang.org/grpc"
 
-	gw "github.com/k2rth1k/go_programming/pkg/proto" // Update
+	gw "github.com/k2rth1k/go_programming/pkg/proto"  // Update
 )
 
 var (
@@ -31,7 +34,7 @@ func run() error {
 	if err != nil {
 		return err
 	}
-
+	go startServer()
 	// Start HTTP server (and proxy calls to gRPC server endpoint)
 	return http.ListenAndServe(":8081", mux)
 }
@@ -45,3 +48,17 @@ func main() {
 	}
 }
 
+func startServer(){
+	lis, err := net.Listen("tcp", "localhost:9090")
+	if err != nil {
+		log.Fatalf("Failed to listen: %v", err)
+	}
+	s := grpc.NewServer()
+	gw.RegisterDataStructuresServer(s, &api.Server{})
+	reflection.Register(s)
+	go func(s *grpc.Server,lis net.Listener) {
+		if err := s.Serve(lis); err != nil {
+			log.Fatalf("failed to serve: %v", err)
+		}
+	}(s,lis)
+}

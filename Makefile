@@ -15,5 +15,17 @@ proto:
 .Phony: build
 build:	proto
 	@echo "building application...."
-	@go build -o build/amd64 main.go
+	@go build -o build/amd64/go_programming main.go
 	@echo "successfully built application"
+
+.Phony: run
+run: build
+	@echo "starting service....."
+	@./build/amd64/go_programming
+
+.Phony: go
+go: ## go checks module packages
+	$(ECHO) go list -mod=readonly -u -m all
+	$(ECHO) go mod verify
+	$(ECHO) go mod tidy
+	$(ECHO) go mod vendor

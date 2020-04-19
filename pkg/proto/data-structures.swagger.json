@@ -50,7 +50,7 @@
           "type": "string",
           "format": "int64"
         },
-        "RearrangeArrayAlternately_Test_Case": {
+        "Array": {
           "type": "array",
           "items": {
             "type": "string",
