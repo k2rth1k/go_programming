@@ -74,7 +74,6 @@ func (m *RearrangeArrayAlternately_Test_Case) GetArray() []int64 {
 }
 
 type RearrangeArrayAlternatelyRequest struct {
-	TestcasesCount       int64    `protobuf:"varint,1,opt,name=testcases_count,json=testcasesCount,proto3" json:"testcases_count,omitempty"`
 	Array                []int64  `protobuf:"varint,2,rep,packed,name=Array,proto3" json:"Array,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
@@ -105,13 +104,6 @@ func (m *RearrangeArrayAlternatelyRequest) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_RearrangeArrayAlternatelyRequest proto.InternalMessageInfo
-
-func (m *RearrangeArrayAlternatelyRequest) GetTestcasesCount() int64 {
-	if m != nil {
-		return m.TestcasesCount
-	}
-	return 0
-}
 
 func (m *RearrangeArrayAlternatelyRequest) GetArray() []int64 {
 	if m != nil {
@@ -167,36 +159,288 @@ func (m *RearrangeArrayAlternatelyResponse) GetArrangedArray() []int64 {
 	return nil
 }
 
+type StreamClientSideRequest struct {
+	Message              string   `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *StreamClientSideRequest) Reset()         { *m = StreamClientSideRequest{} }
+func (m *StreamClientSideRequest) String() string { return proto.CompactTextString(m) }
+func (*StreamClientSideRequest) ProtoMessage()    {}
+func (*StreamClientSideRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e3a9062788d88704, []int{3}
+}
+
+func (m *StreamClientSideRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StreamClientSideRequest.Unmarshal(m, b)
+}
+func (m *StreamClientSideRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StreamClientSideRequest.Marshal(b, m, deterministic)
+}
+func (m *StreamClientSideRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StreamClientSideRequest.Merge(m, src)
+}
+func (m *StreamClientSideRequest) XXX_Size() int {
+	return xxx_messageInfo_StreamClientSideRequest.Size(m)
+}
+func (m *StreamClientSideRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_StreamClientSideRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StreamClientSideRequest proto.InternalMessageInfo
+
+func (m *StreamClientSideRequest) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+type StreamClientSideResponse struct {
+	Sol                  string   `protobuf:"bytes,2,opt,name=sol,proto3" json:"sol,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *StreamClientSideResponse) Reset()         { *m = StreamClientSideResponse{} }
+func (m *StreamClientSideResponse) String() string { return proto.CompactTextString(m) }
+func (*StreamClientSideResponse) ProtoMessage()    {}
+func (*StreamClientSideResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e3a9062788d88704, []int{4}
+}
+
+func (m *StreamClientSideResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_StreamClientSideResponse.Unmarshal(m, b)
+}
+func (m *StreamClientSideResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_StreamClientSideResponse.Marshal(b, m, deterministic)
+}
+func (m *StreamClientSideResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StreamClientSideResponse.Merge(m, src)
+}
+func (m *StreamClientSideResponse) XXX_Size() int {
+	return xxx_messageInfo_StreamClientSideResponse.Size(m)
+}
+func (m *StreamClientSideResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_StreamClientSideResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StreamClientSideResponse proto.InternalMessageInfo
+
+func (m *StreamClientSideResponse) GetSol() string {
+	if m != nil {
+		return m.Sol
+	}
+	return ""
+}
+
+type ServerSideStreamRequest struct {
+	Count                int64    `protobuf:"varint,1,opt,name=count,proto3" json:"count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ServerSideStreamRequest) Reset()         { *m = ServerSideStreamRequest{} }
+func (m *ServerSideStreamRequest) String() string { return proto.CompactTextString(m) }
+func (*ServerSideStreamRequest) ProtoMessage()    {}
+func (*ServerSideStreamRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e3a9062788d88704, []int{5}
+}
+
+func (m *ServerSideStreamRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ServerSideStreamRequest.Unmarshal(m, b)
+}
+func (m *ServerSideStreamRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ServerSideStreamRequest.Marshal(b, m, deterministic)
+}
+func (m *ServerSideStreamRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ServerSideStreamRequest.Merge(m, src)
+}
+func (m *ServerSideStreamRequest) XXX_Size() int {
+	return xxx_messageInfo_ServerSideStreamRequest.Size(m)
+}
+func (m *ServerSideStreamRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ServerSideStreamRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ServerSideStreamRequest proto.InternalMessageInfo
+
+func (m *ServerSideStreamRequest) GetCount() int64 {
+	if m != nil {
+		return m.Count
+	}
+	return 0
+}
+
+type ServerSideStreamResponse struct {
+	Number               int64    `protobuf:"varint,1,opt,name=number,proto3" json:"number,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ServerSideStreamResponse) Reset()         { *m = ServerSideStreamResponse{} }
+func (m *ServerSideStreamResponse) String() string { return proto.CompactTextString(m) }
+func (*ServerSideStreamResponse) ProtoMessage()    {}
+func (*ServerSideStreamResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e3a9062788d88704, []int{6}
+}
+
+func (m *ServerSideStreamResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ServerSideStreamResponse.Unmarshal(m, b)
+}
+func (m *ServerSideStreamResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ServerSideStreamResponse.Marshal(b, m, deterministic)
+}
+func (m *ServerSideStreamResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ServerSideStreamResponse.Merge(m, src)
+}
+func (m *ServerSideStreamResponse) XXX_Size() int {
+	return xxx_messageInfo_ServerSideStreamResponse.Size(m)
+}
+func (m *ServerSideStreamResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ServerSideStreamResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ServerSideStreamResponse proto.InternalMessageInfo
+
+func (m *ServerSideStreamResponse) GetNumber() int64 {
+	if m != nil {
+		return m.Number
+	}
+	return 0
+}
+
+type BidirectionalStreamRequest struct {
+	Count                int64    `protobuf:"varint,1,opt,name=count,proto3" json:"count,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *BidirectionalStreamRequest) Reset()         { *m = BidirectionalStreamRequest{} }
+func (m *BidirectionalStreamRequest) String() string { return proto.CompactTextString(m) }
+func (*BidirectionalStreamRequest) ProtoMessage()    {}
+func (*BidirectionalStreamRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e3a9062788d88704, []int{7}
+}
+
+func (m *BidirectionalStreamRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BidirectionalStreamRequest.Unmarshal(m, b)
+}
+func (m *BidirectionalStreamRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BidirectionalStreamRequest.Marshal(b, m, deterministic)
+}
+func (m *BidirectionalStreamRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BidirectionalStreamRequest.Merge(m, src)
+}
+func (m *BidirectionalStreamRequest) XXX_Size() int {
+	return xxx_messageInfo_BidirectionalStreamRequest.Size(m)
+}
+func (m *BidirectionalStreamRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_BidirectionalStreamRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_BidirectionalStreamRequest proto.InternalMessageInfo
+
+func (m *BidirectionalStreamRequest) GetCount() int64 {
+	if m != nil {
+		return m.Count
+	}
+	return 0
+}
+
+type BidirectionalStreamResponse struct {
+	Numbers              int64    `protobuf:"varint,1,opt,name=numbers,proto3" json:"numbers,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *BidirectionalStreamResponse) Reset()         { *m = BidirectionalStreamResponse{} }
+func (m *BidirectionalStreamResponse) String() string { return proto.CompactTextString(m) }
+func (*BidirectionalStreamResponse) ProtoMessage()    {}
+func (*BidirectionalStreamResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_e3a9062788d88704, []int{8}
+}
+
+func (m *BidirectionalStreamResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BidirectionalStreamResponse.Unmarshal(m, b)
+}
+func (m *BidirectionalStreamResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BidirectionalStreamResponse.Marshal(b, m, deterministic)
+}
+func (m *BidirectionalStreamResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BidirectionalStreamResponse.Merge(m, src)
+}
+func (m *BidirectionalStreamResponse) XXX_Size() int {
+	return xxx_messageInfo_BidirectionalStreamResponse.Size(m)
+}
+func (m *BidirectionalStreamResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_BidirectionalStreamResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_BidirectionalStreamResponse proto.InternalMessageInfo
+
+func (m *BidirectionalStreamResponse) GetNumbers() int64 {
+	if m != nil {
+		return m.Numbers
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*RearrangeArrayAlternately_Test_Case)(nil), "proto.RearrangeArrayAlternately_Test_Case")
 	proto.RegisterType((*RearrangeArrayAlternatelyRequest)(nil), "proto.RearrangeArrayAlternatelyRequest")
 	proto.RegisterType((*RearrangeArrayAlternatelyResponse)(nil), "proto.RearrangeArrayAlternatelyResponse")
+	proto.RegisterType((*StreamClientSideRequest)(nil), "proto.StreamClientSideRequest")
+	proto.RegisterType((*StreamClientSideResponse)(nil), "proto.StreamClientSideResponse")
+	proto.RegisterType((*ServerSideStreamRequest)(nil), "proto.ServerSideStreamRequest")
+	proto.RegisterType((*ServerSideStreamResponse)(nil), "proto.ServerSideStreamResponse")
+	proto.RegisterType((*BidirectionalStreamRequest)(nil), "proto.BidirectionalStreamRequest")
+	proto.RegisterType((*BidirectionalStreamResponse)(nil), "proto.BidirectionalStreamResponse")
 }
 
 func init() { proto.RegisterFile("pkg/proto/data-structures.proto", fileDescriptor_e3a9062788d88704) }
 
 var fileDescriptor_e3a9062788d88704 = []byte{
-	// 311 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x52, 0xdd, 0x4a, 0x02, 0x41,
-	0x14, 0x66, 0x14, 0xbd, 0x18, 0xc8, 0x60, 0x88, 0x30, 0x09, 0xb4, 0x8d, 0x50, 0x02, 0x1d, 0xb2,
-	0x9b, 0xe8, 0x4e, 0xec, 0x09, 0xd6, 0xee, 0xb7, 0xa3, 0x9e, 0x36, 0x69, 0x9d, 0xd9, 0xe6, 0x9c,
-	0x0d, 0xbc, 0xed, 0x15, 0x7a, 0x89, 0xde, 0xa1, 0xc7, 0xe8, 0x15, 0x7a, 0x90, 0x70, 0x76, 0x32,
-	0x6f, 0xcc, 0xab, 0xe1, 0x7c, 0x7c, 0x7f, 0xe7, 0x30, 0xb2, 0x9d, 0x3f, 0xa7, 0x3a, 0x77, 0x96,
-	0xad, 0x9e, 0x03, 0x43, 0x9f, 0xd8, 0x15, 0x33, 0x2e, 0x1c, 0xd2, 0xc0, 0xa3, 0xaa, 0xe6, 0x9f,
-	0x56, 0x3b, 0xb5, 0x36, 0xcd, 0xb0, 0xa4, 0x4e, 0x8b, 0x47, 0xcd, 0x8b, 0x25, 0x12, 0xc3, 0x32,
-	0x2f, 0x79, 0xad, 0xd3, 0x40, 0x80, 0x7c, 0xa1, 0xc1, 0x18, 0xcb, 0xc0, 0x0b, 0x6b, 0x82, 0x4b,
-	0x34, 0x91, 0xe7, 0x31, 0x82, 0x73, 0x60, 0x52, 0x1c, 0x39, 0x07, 0xab, 0x51, 0xc6, 0xe8, 0x0c,
-	0x30, 0x66, 0xab, 0xe4, 0x1e, 0x89, 0x93, 0x31, 0x10, 0xaa, 0x63, 0x59, 0xcf, 0xd0, 0xa4, 0xfc,
-	0xd4, 0x14, 0x1d, 0xd1, 0xab, 0xc6, 0x61, 0x52, 0x47, 0xb2, 0xb6, 0x16, 0xaf, 0x9a, 0x95, 0x4e,
-	0xb5, 0x57, 0x8d, 0xcb, 0x21, 0x02, 0xd9, 0xd9, 0x69, 0x1a, 0xe3, 0x4b, 0x81, 0xc4, 0xaa, 0x2b,
-	0x0f, 0x19, 0x89, 0x67, 0x40, 0x48, 0xc9, 0xcc, 0x16, 0x86, 0x83, 0x75, 0x63, 0x03, 0x8f, 0xd7,
-	0xe8, 0x3a, 0x62, 0xb4, 0x1d, 0xe1, 0x87, 0xe8, 0x41, 0x9e, 0xfd, 0x13, 0x41, 0xb9, 0x35, 0x84,
-	0x7f, 0xed, 0xc4, 0x56, 0x3b, 0x75, 0x21, 0x1b, 0x41, 0x38, 0x4f, 0xb6, 0xcb, 0x1f, 0xfc, 0xa2,
-	0xde, 0x6f, 0xf8, 0x29, 0x64, 0xe3, 0x0e, 0x18, 0x26, 0x9b, 0xc3, 0xab, 0x0f, 0x21, 0x4f, 0x76,
-	0xa6, 0xaa, 0x6e, 0x79, 0xd2, 0xc1, 0xbe, 0xd5, 0x5b, 0xbd, 0xfd, 0xc4, 0x72, 0x81, 0xe8, 0xe6,
-	0xed, 0xeb, 0xfb, 0xbd, 0x32, 0x8c, 0xfa, 0xfa, 0xf5, 0xca, 0x7f, 0x83, 0x84, 0x1c, 0x87, 0x36,
-	0x7a, 0xa7, 0xfc, 0x56, 0x5c, 0x4e, 0xeb, 0x3e, 0xe2, 0xfa, 0x27, 0x00, 0x00, 0xff, 0xff, 0xff,
-	0xa1, 0x04, 0x53, 0x47, 0x02, 0x00, 0x00,
+	// 511 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x93, 0xc1, 0x6e, 0xd3, 0x40,
+	0x10, 0x86, 0xb5, 0x09, 0x4d, 0xc5, 0x48, 0x54, 0xd5, 0x0a, 0xa5, 0xc6, 0x20, 0x92, 0x2e, 0x42,
+	0x44, 0x55, 0x5b, 0xb7, 0xe9, 0xa1, 0x55, 0x6f, 0xa1, 0x3c, 0x41, 0xc2, 0x3d, 0x6c, 0x92, 0xc1,
+	0x58, 0xd8, 0x6b, 0xb3, 0x3b, 0xae, 0x94, 0x2b, 0x0f, 0xc0, 0x85, 0x33, 0x77, 0xde, 0x87, 0x57,
+	0xe0, 0x35, 0x90, 0x90, 0xbd, 0xeb, 0xc4, 0x4a, 0xe3, 0xb6, 0xa7, 0x64, 0xec, 0xf9, 0xe6, 0xff,
+	0x77, 0xe7, 0x37, 0xf4, 0xb2, 0xaf, 0x61, 0x90, 0xe9, 0x94, 0xd2, 0x60, 0x21, 0x49, 0x9e, 0x18,
+	0xd2, 0xf9, 0x9c, 0x72, 0x8d, 0xe6, 0xb4, 0x7c, 0xca, 0x77, 0xca, 0x1f, 0xbf, 0x17, 0xa6, 0x69,
+	0x18, 0xa3, 0x6d, 0x9d, 0xe5, 0x9f, 0x03, 0x8a, 0x12, 0x34, 0x24, 0x93, 0xcc, 0xf6, 0xf9, 0xaf,
+	0x5c, 0x83, 0xcc, 0xa2, 0x40, 0x2a, 0x95, 0x92, 0xa4, 0x28, 0x55, 0x6e, 0x8a, 0x98, 0xc0, 0x9b,
+	0x31, 0x4a, 0xad, 0xa5, 0x0a, 0x71, 0xa4, 0xb5, 0x5c, 0x8e, 0x62, 0x42, 0xad, 0x24, 0x61, 0xbc,
+	0x9c, 0x7e, 0x44, 0x43, 0xd3, 0x1b, 0x69, 0x90, 0x77, 0xa1, 0x13, 0xa3, 0x0a, 0xe9, 0x8b, 0xc7,
+	0xfa, 0x6c, 0xd0, 0x1e, 0xbb, 0x8a, 0x3f, 0x87, 0x9d, 0x02, 0x5e, 0x7a, 0xad, 0x7e, 0x7b, 0xd0,
+	0x1e, 0xdb, 0x42, 0x5c, 0x41, 0xbf, 0x71, 0xe8, 0x18, 0xbf, 0xe5, 0x68, 0xa8, 0x20, 0x47, 0x75,
+	0xb2, 0x2c, 0xc4, 0x27, 0x38, 0xbc, 0x87, 0x34, 0x59, 0xaa, 0x0c, 0xae, 0x45, 0x59, 0x4d, 0x94,
+	0xbf, 0x85, 0x3d, 0x07, 0x2e, 0xa6, 0x75, 0x4f, 0xcf, 0xaa, 0xa7, 0x56, 0xe1, 0x02, 0x0e, 0x26,
+	0xa4, 0x51, 0x26, 0x37, 0x71, 0x84, 0x8a, 0x26, 0xd1, 0x02, 0x2b, 0x4b, 0x1e, 0xec, 0x26, 0x68,
+	0x8c, 0x0c, 0xb1, 0x3c, 0xe5, 0xd3, 0x71, 0x55, 0x8a, 0x63, 0xf0, 0xee, 0x42, 0xce, 0xcd, 0x3e,
+	0xb4, 0x4d, 0x1a, 0x7b, 0xad, 0x92, 0x28, 0xfe, 0x8a, 0x00, 0x0e, 0x26, 0xa8, 0x6f, 0x51, 0x17,
+	0x7d, 0x96, 0xab, 0x9d, 0x7a, 0x9e, 0xe6, 0x8a, 0xdc, 0x35, 0xda, 0x42, 0x0c, 0xc1, 0xbb, 0x0b,
+	0xb8, 0xf1, 0x5d, 0xe8, 0xa8, 0x3c, 0x99, 0xa1, 0xae, 0x6e, 0xde, 0x56, 0x62, 0x08, 0xfe, 0xfb,
+	0x68, 0x11, 0x69, 0x9c, 0x17, 0xeb, 0x94, 0xf1, 0x63, 0x74, 0x2e, 0xe1, 0xe5, 0x56, 0xc6, 0x49,
+	0x79, 0xb0, 0x6b, 0x87, 0x1b, 0x87, 0x55, 0xe5, 0xf0, 0xdf, 0x13, 0xd8, 0xfb, 0x20, 0x49, 0x4e,
+	0x56, 0x21, 0xe4, 0xbf, 0x19, 0xbc, 0x68, 0x5c, 0x15, 0x7f, 0x67, 0xe3, 0x75, 0xfa, 0x50, 0x0c,
+	0xfc, 0xc1, 0xc3, 0x8d, 0xd6, 0x9d, 0xb8, 0xfa, 0xfe, 0xe7, 0xef, 0xcf, 0xd6, 0x50, 0x9c, 0x04,
+	0xb7, 0xe7, 0xe5, 0x27, 0x31, 0x35, 0x9a, 0x9c, 0x9b, 0xa0, 0x11, 0xbf, 0x66, 0x47, 0xfc, 0x07,
+	0x83, 0xfd, 0xcd, 0xf5, 0xf1, 0xd7, 0x4e, 0xb8, 0x21, 0x0c, 0x7e, 0xaf, 0xf1, 0xbd, 0xf3, 0x73,
+	0x59, 0xfa, 0x39, 0x17, 0xc7, 0x6b, 0x3f, 0xab, 0xdb, 0x09, 0x08, 0x0d, 0x05, 0xf3, 0x15, 0x64,
+	0x87, 0x44, 0x2a, 0xbc, 0x66, 0x47, 0x03, 0x66, 0x0d, 0x6d, 0x2c, 0x7c, 0x6d, 0x68, 0x7b, 0x74,
+	0xd6, 0x86, 0x1a, 0x92, 0xf2, 0x08, 0x43, 0x66, 0x03, 0xb5, 0x86, 0xce, 0x18, 0xff, 0xc5, 0xa0,
+	0xbb, 0x25, 0x19, 0x91, 0x0a, 0xf9, 0xa1, 0x93, 0x6d, 0x0e, 0x9b, 0x2f, 0xee, 0x6b, 0x69, 0xde,
+	0xde, 0x86, 0xb9, 0x59, 0x9d, 0x2e, 0xde, 0xa2, 0x4c, 0xca, 0xeb, 0x3a, 0x63, 0xb3, 0x4e, 0x29,
+	0x70, 0xf1, 0x3f, 0x00, 0x00, 0xff, 0xff, 0x90, 0xbf, 0xe3, 0x19, 0x15, 0x05, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -212,6 +456,9 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type DataStructuresClient interface {
 	RearrangeArrayAlternately(ctx context.Context, in *RearrangeArrayAlternatelyRequest, opts ...grpc.CallOption) (*RearrangeArrayAlternatelyResponse, error)
+	StreamClientSide(ctx context.Context, opts ...grpc.CallOption) (DataStructures_StreamClientSideClient, error)
+	ServerSideStream(ctx context.Context, in *ServerSideStreamRequest, opts ...grpc.CallOption) (DataStructures_ServerSideStreamClient, error)
+	BidirectionalStreaming(ctx context.Context, opts ...grpc.CallOption) (DataStructures_BidirectionalStreamingClient, error)
 }
 
 type dataStructuresClient struct {
@@ -231,9 +478,109 @@ func (c *dataStructuresClient) RearrangeArrayAlternately(ctx context.Context, in
 	return out, nil
 }
 
+func (c *dataStructuresClient) StreamClientSide(ctx context.Context, opts ...grpc.CallOption) (DataStructures_StreamClientSideClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_DataStructures_serviceDesc.Streams[0], "/proto.DataStructures/StreamClientSide", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &dataStructuresStreamClientSideClient{stream}
+	return x, nil
+}
+
+type DataStructures_StreamClientSideClient interface {
+	Send(*StreamClientSideRequest) error
+	CloseAndRecv() (*StreamClientSideResponse, error)
+	grpc.ClientStream
+}
+
+type dataStructuresStreamClientSideClient struct {
+	grpc.ClientStream
+}
+
+func (x *dataStructuresStreamClientSideClient) Send(m *StreamClientSideRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *dataStructuresStreamClientSideClient) CloseAndRecv() (*StreamClientSideResponse, error) {
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	m := new(StreamClientSideResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *dataStructuresClient) ServerSideStream(ctx context.Context, in *ServerSideStreamRequest, opts ...grpc.CallOption) (DataStructures_ServerSideStreamClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_DataStructures_serviceDesc.Streams[1], "/proto.DataStructures/ServerSideStream", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &dataStructuresServerSideStreamClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type DataStructures_ServerSideStreamClient interface {
+	Recv() (*ServerSideStreamResponse, error)
+	grpc.ClientStream
+}
+
+type dataStructuresServerSideStreamClient struct {
+	grpc.ClientStream
+}
+
+func (x *dataStructuresServerSideStreamClient) Recv() (*ServerSideStreamResponse, error) {
+	m := new(ServerSideStreamResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *dataStructuresClient) BidirectionalStreaming(ctx context.Context, opts ...grpc.CallOption) (DataStructures_BidirectionalStreamingClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_DataStructures_serviceDesc.Streams[2], "/proto.DataStructures/BidirectionalStreaming", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &dataStructuresBidirectionalStreamingClient{stream}
+	return x, nil
+}
+
+type DataStructures_BidirectionalStreamingClient interface {
+	Send(*BidirectionalStreamRequest) error
+	Recv() (*BidirectionalStreamResponse, error)
+	grpc.ClientStream
+}
+
+type dataStructuresBidirectionalStreamingClient struct {
+	grpc.ClientStream
+}
+
+func (x *dataStructuresBidirectionalStreamingClient) Send(m *BidirectionalStreamRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *dataStructuresBidirectionalStreamingClient) Recv() (*BidirectionalStreamResponse, error) {
+	m := new(BidirectionalStreamResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // DataStructuresServer is the server API for DataStructures service.
 type DataStructuresServer interface {
 	RearrangeArrayAlternately(context.Context, *RearrangeArrayAlternatelyRequest) (*RearrangeArrayAlternatelyResponse, error)
+	StreamClientSide(DataStructures_StreamClientSideServer) error
+	ServerSideStream(*ServerSideStreamRequest, DataStructures_ServerSideStreamServer) error
+	BidirectionalStreaming(DataStructures_BidirectionalStreamingServer) error
 }
 
 // UnimplementedDataStructuresServer can be embedded to have forward compatible implementations.
@@ -242,6 +589,15 @@ type UnimplementedDataStructuresServer struct {
 
 func (*UnimplementedDataStructuresServer) RearrangeArrayAlternately(ctx context.Context, req *RearrangeArrayAlternatelyRequest) (*RearrangeArrayAlternatelyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RearrangeArrayAlternately not implemented")
+}
+func (*UnimplementedDataStructuresServer) StreamClientSide(srv DataStructures_StreamClientSideServer) error {
+	return status.Errorf(codes.Unimplemented, "method StreamClientSide not implemented")
+}
+func (*UnimplementedDataStructuresServer) ServerSideStream(req *ServerSideStreamRequest, srv DataStructures_ServerSideStreamServer) error {
+	return status.Errorf(codes.Unimplemented, "method ServerSideStream not implemented")
+}
+func (*UnimplementedDataStructuresServer) BidirectionalStreaming(srv DataStructures_BidirectionalStreamingServer) error {
+	return status.Errorf(codes.Unimplemented, "method BidirectionalStreaming not implemented")
 }
 
 func RegisterDataStructuresServer(s *grpc.Server, srv DataStructuresServer) {
@@ -266,6 +622,79 @@ func _DataStructures_RearrangeArrayAlternately_Handler(srv interface{}, ctx cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DataStructures_StreamClientSide_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(DataStructuresServer).StreamClientSide(&dataStructuresStreamClientSideServer{stream})
+}
+
+type DataStructures_StreamClientSideServer interface {
+	SendAndClose(*StreamClientSideResponse) error
+	Recv() (*StreamClientSideRequest, error)
+	grpc.ServerStream
+}
+
+type dataStructuresStreamClientSideServer struct {
+	grpc.ServerStream
+}
+
+func (x *dataStructuresStreamClientSideServer) SendAndClose(m *StreamClientSideResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *dataStructuresStreamClientSideServer) Recv() (*StreamClientSideRequest, error) {
+	m := new(StreamClientSideRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func _DataStructures_ServerSideStream_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(ServerSideStreamRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(DataStructuresServer).ServerSideStream(m, &dataStructuresServerSideStreamServer{stream})
+}
+
+type DataStructures_ServerSideStreamServer interface {
+	Send(*ServerSideStreamResponse) error
+	grpc.ServerStream
+}
+
+type dataStructuresServerSideStreamServer struct {
+	grpc.ServerStream
+}
+
+func (x *dataStructuresServerSideStreamServer) Send(m *ServerSideStreamResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func _DataStructures_BidirectionalStreaming_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(DataStructuresServer).BidirectionalStreaming(&dataStructuresBidirectionalStreamingServer{stream})
+}
+
+type DataStructures_BidirectionalStreamingServer interface {
+	Send(*BidirectionalStreamResponse) error
+	Recv() (*BidirectionalStreamRequest, error)
+	grpc.ServerStream
+}
+
+type dataStructuresBidirectionalStreamingServer struct {
+	grpc.ServerStream
+}
+
+func (x *dataStructuresBidirectionalStreamingServer) Send(m *BidirectionalStreamResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *dataStructuresBidirectionalStreamingServer) Recv() (*BidirectionalStreamRequest, error) {
+	m := new(BidirectionalStreamRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 var _DataStructures_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "proto.DataStructures",
 	HandlerType: (*DataStructuresServer)(nil),
@@ -275,6 +704,23 @@ var _DataStructures_serviceDesc = grpc.ServiceDesc{
 			Handler:    _DataStructures_RearrangeArrayAlternately_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "StreamClientSide",
+			Handler:       _DataStructures_StreamClientSide_Handler,
+			ClientStreams: true,
+		},
+		{
+			StreamName:    "ServerSideStream",
+			Handler:       _DataStructures_ServerSideStream_Handler,
+			ServerStreams: true,
+		},
+		{
+			StreamName:    "BidirectionalStreaming",
+			Handler:       _DataStructures_BidirectionalStreaming_Handler,
+			ServerStreams: true,
+			ClientStreams: true,
+		},
+	},
 	Metadata: "pkg/proto/data-structures.proto",
 }
