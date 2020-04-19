@@ -19,7 +19,6 @@ message RearrangeArrayAlternately_Test_Case{
 }
 
 message RearrangeArrayAlternatelyRequest{
-    int64 testcases_count=1;
     repeated int64 Array=2;
 }
 
