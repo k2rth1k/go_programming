@@ -1,0 +1,68 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "pkg/proto/algorithms/algorithms.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/algorithms/FindMinimumNumber": {
+      "post": {
+        "operationId": "FindMinimumNumber",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/protoFindMinimumNumberResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoFindMinimumNumberRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Algorithms"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protoFindMinimumNumberRequest": {
+      "type": "object",
+      "properties": {
+        "numbers": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      }
+    },
+    "protoFindMinimumNumberResponse": {
+      "type": "object",
+      "properties": {
+        "minimum_number": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "pkg/proto/data-structures/data-structures.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/data_srtuctures/RearrangeArrayAlternately": {
+      "post": {
+        "operationId": "RearrangeArrayAlternately",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/protoRearrangeArrayAlternatelyResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoRearrangeArrayAlternatelyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DataStructures"
+        ]
+      }
+    },
+    "/v1/data_structures/test/bidirectional_stream": {
+      "post": {
+        "operationId": "BidirectionalStreaming",
+        "responses": {
+          "200": {
+            "description": "(streaming responses)",
+            "schema": {
+              "$ref": "#/definitions/protoBidirectionalStreamResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": " (streaming inputs)",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoBidirectionalStreamRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DataStructures"
+        ]
+      }
+    },
+    "/v1/data_structures/test/clientSideStreaming": {
+      "post": {
+        "operationId": "StreamClientSide",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/protoStreamClientSideResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": " (streaming inputs)",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoStreamClientSideRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DataStructures"
+        ]
+      }
+    },
+    "/v1/data_structures/test/serverSideStreaming": {
+      "post": {
+        "operationId": "ServerSideStream",
+        "responses": {
+          "200": {
+            "description": "(streaming responses)",
+            "schema": {
+              "$ref": "#/definitions/protoServerSideStreamResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/protoServerSideStreamRequest"
+            }
+          }
+        ],
+        "tags": [
+          "DataStructures"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protoBidirectionalStreamRequest": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "protoBidirectionalStreamResponse": {
+      "type": "object",
+      "properties": {
+        "numbers": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "protoRearrangeArrayAlternatelyRequest": {
+      "type": "object",
+      "properties": {
+        "Array": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "protoRearrangeArrayAlternatelyResponse": {
+      "type": "object",
+      "properties": {
+        "array": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        },
+        "arranged_array": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "int64"
+          }
+        }
+      }
+    },
+    "protoServerSideStreamRequest": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "protoServerSideStreamResponse": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "protoStreamClientSideRequest": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "protoStreamClientSideResponse": {
+      "type": "object",
+      "properties": {
+        "sol": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

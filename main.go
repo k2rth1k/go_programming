@@ -1,18 +1,16 @@
 package main
+
 import (
 	"context"
 	"flag"
 	"github.com/k2rth1k/go_programming/pkg/api"
-	"google.golang.org/grpc/reflection"
-	"log"
-	"net"
+	algo "github.com/k2rth1k/go_programming/pkg/proto/algorithms"
+	ds "github.com/k2rth1k/go_programming/pkg/proto/data-structures"
 	"net/http"
 
 	"github.com/golang/glog"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"google.golang.org/grpc"
-
-	gw "github.com/k2rth1k/go_programming/pkg/proto"  // Update
 )
 
 var (
@@ -30,11 +28,15 @@ func run() error {
 	// Note: Make sure the gRPC server is running properly and accessible
 	mux := runtime.NewServeMux()
 	opts := []grpc.DialOption{grpc.WithInsecure()}
-	err := gw.RegisterDataStructuresHandlerFromEndpoint(ctx, mux,  *grpcServerEndpoint, opts)
+	err := ds.RegisterDataStructuresHandlerFromEndpoint(ctx, mux,  *grpcServerEndpoint, opts)
 	if err != nil {
 		return err
 	}
-	go startServer()
+	err=algo.RegisterAlgorithmsHandlerFromEndpoint(ctx,mux,*grpcServerEndpoint,opts)
+	if err!=nil{
+		return err
+	}
+	go api.StartServer()
 	// Start HTTP server (and proxy calls to gRPC server endpoint)
 	return http.ListenAndServe(":8081", mux)
 }
@@ -46,19 +48,4 @@ func main() {
 	if err := run(); err != nil {
 		glog.Fatal(err)
 	}
-}
-
-func startServer(){
-	lis, err := net.Listen("tcp", "localhost:9090")
-	if err != nil {
-		log.Fatalf("Failed to listen: %v", err)
-	}
-	s := grpc.NewServer()
-	gw.RegisterDataStructuresServer(s, &api.Server{})
-	reflection.Register(s)
-	go func(s *grpc.Server,lis net.Listener) {
-		if err := s.Serve(lis); err != nil {
-			log.Fatalf("failed to serve: %v", err)
-		}
-	}(s,lis)
 }

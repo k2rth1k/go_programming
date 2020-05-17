@@ -1,0 +1,72 @@
+syntax="proto3";
+package proto;
+
+import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto";
+
+service DataStructures {
+    rpc RearrangeArrayAlternately(RearrangeArrayAlternatelyRequest) returns (RearrangeArrayAlternatelyResponse){
+    option (google.api.http) = {
+    post:"/v1/data_srtuctures/RearrangeArrayAlternately"
+    body:"*"
+    };
+}
+    rpc StreamClientSide(stream StreamClientSideRequest) returns (StreamClientSideResponse){
+      option(google.api.http)={
+      post:"/v1/data_structures/test/clientSideStreaming"
+      body:"*"
+      };
+    }
+
+    rpc ServerSideStream(ServerSideStreamRequest) returns (stream ServerSideStreamResponse){
+     option(google.api.http)={
+     post:"/v1/data_structures/test/serverSideStreaming"
+     body:"*"
+     };
+    }
+
+    rpc BidirectionalStreaming(stream BidirectionalStreamRequest) returns (stream BidirectionalStreamResponse){
+        option(google.api.http)={
+        post:"/v1/data_structures/test/bidirectional_stream"
+        body:"*"
+        };
+    }
+}
+
+message RearrangeArrayAlternately_Test_Case{
+    int64 length=1;
+    repeated int64 array=2;
+}
+
+message RearrangeArrayAlternatelyRequest{
+    repeated int64 Array=1;
+}
+
+message RearrangeArrayAlternatelyResponse{
+    repeated int64 array=1;
+    repeated int64 arranged_array=2;
+}
+
+message StreamClientSideRequest{
+    string message=1;
+}
+
+message StreamClientSideResponse{
+    string sol=2;
+}
+
+message ServerSideStreamRequest{
+    int64 count=1;
+}
+
+message ServerSideStreamResponse{
+    int64 number=1;
+}
+
+message BidirectionalStreamRequest{
+    int64 count=1;
+}
+
+message BidirectionalStreamResponse{
+    int64 numbers=1;
+}

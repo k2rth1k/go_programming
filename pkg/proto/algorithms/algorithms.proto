@@ -1,0 +1,21 @@
+syntax="proto3";
+package proto;
+
+import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto";
+
+service Algorithms{
+    rpc FindMinimumNumber(FindMinimumNumberRequest) returns (FindMinimumNumberResponse){
+        option(google.api.http)={
+            post:"/v1/algorithms/FindMinimumNumber"
+            body:"*"
+        };
+    }
+}
+message FindMinimumNumberRequest{
+    repeated float numbers=1;
+}
+
+message FindMinimumNumberResponse{
+    float minimum_number=1;
+}
